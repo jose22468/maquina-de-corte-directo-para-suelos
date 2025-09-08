@@ -3,53 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máquina de Corte Directo Humboldt HM-5755 - Simulación</title>
+    <title>Máquina de Corte Directo Humboldt HM-5750 - Simulación Educativa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="branding">
-            <h1>Humboldt HM-5755</h1>
-            <h2>Máquina de Corte Directo Semi-Automática</h2>
-            <p>Simulación interactiva para ensayos geotécnicos - ASTM D3080, AASHTO T236, BS 1377.7</p>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+            </div>
+            <div class="branding">
+                <h1>Humboldt HM-5750</h1>
+                <h2>Máquina de Corte Directo con Pesos Muertos</h2>
+                <p>Simulación educativa para ensayos geotécnicos - ASTM D3080, AASHTO T236, BS 1377.7</p>
+            </div>
         </div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#introduccion">Introducción</a></li>
-            <li><a href="#especificaciones">Especificaciones</a></li>
-            <li><a href="#simulacion">Simulación</a></li>
-            <li><a href="#procedimiento">Procedimiento</a></li>
-            <li><a href="#aplicaciones">Aplicaciones</a></li>
+            <li><a href="#maquina" onclick="showSection('maquina')"><i class="fas fa-cogs"></i> La Máquina</a></li>
+            <li><a href="#partes" onclick="showSection('partes')"><i class="fas fa-toolbox"></i> Partes</a></li>
+            <li><a href="#protocolo" onclick="showSection('protocolo')"><i class="fas fa-clipboard-list"></i> Protocolo</a></li>
+            <li><a href="#preparacion" onclick="showSection('preparacion')"><i class="fas fa-vial"></i> Preparación</a></li>
+            <li><a href="#simulacion" onclick="showSection('simulacion')"><i class="fas fa-play-circle"></i> Simulación</a></li>
+            <li><a href="#resultados" onclick="showSection('resultados')"><i class="fas fa-chart-line"></i> Resultados</a></li>
         </ul>
     </nav>
     
     <div class="container">
-        <section id="introduccion" class="section">
-            <h2>Introducción a la Máquina HM-5755</h2>
-            <p>La máquina de corte directo Humboldt HM-5755 es un equipo semi-automático que utiliza carga neumática para aplicar cargas verticales a muestras de suelo, eliminando la necesidad de pesos muertos utilizados en sistemas tradicionales.</p>
+        <!-- Sección: La Máquina -->
+        <section id="maquina" class="section active">
+            <h2>Máquina de Corte Directo Humboldt HM-5750</h2>
+            <p>La máquina de corte directo Humboldt HM-5750 es un equipo de pesos muertos utilizado para determinar la resistencia al corte de suelos mediante el método de corte directo. Es una herramienta esencial en laboratorios de geotecnia para el análisis de propiedades de suelo en proyectos de ingeniería civil.</p>
             
             <div class="machine-features">
                 <div class="feature">
-                    <h3>Pantalla Táctil de 7"</h3>
-                    <p>Control y monitoreo en tiempo real de todas las funciones de prueba</p>
+                    <h3><i class="fas fa-weight-hanging"></i> Sistema de Pesos Muertos</h3>
+                    <p>Aplicación precisa de cargas verticales mediante pesos calibrados</p>
                 </div>
                 <div class="feature">
-                    <h3>Carga Neumática</h3>
-                    <p>Sistema de aplicación de carga vertical mediante presión de aire controlada</p>
+                    <h3><i class="fas fa-ruler-combined"></i> Medición Analógica</h3>
+                    <p>Anillos de carga y indicadores de carátula para mediciones precisas</p>
                 </div>
                 <div class="feature">
-                    <h3>4 Canales de Adquisición</h3>
-                    <p>Capacidad para monitorear múltiples parámetros simultáneamente</p>
+                    <h3><i class="fas fa-forward"></i> Corte Directo/Residual</h3>
+                    <p>Capacidad para realizar ensayos de corte directo y residual</p>
                 </div>
             </div>
             
-            <p>El HM-5755 puede funcionar en modo independiente con su pantalla táctil o ser controlado desde un computador en red mediante el software NEXT de Humboldt.</p>
-        </section>
-        
-        <section id="especificaciones" class="section">
-            <h2>Especificaciones Técnicas HM-5755.3F</h2>
+            <h3>Especificaciones Técnicas HM-5750</h3>
             
             <div class="specs-container">
                 <div class="specs-group">
@@ -57,15 +61,15 @@
                     <ul>
                         <li>Fuerza de corte horizontal: 2000 lbf (10 kN)</li>
                         <li>Carga vertical: 2000 lbf (10 kN)</li>
-                        <li>Movimiento horizontal máximo: 1" (25.4 mm)</li>
+                        <li>Movimiento horizontal máximo: 2" (50 mm)</li>
                     </ul>
                 </div>
                 
                 <div class="specs-group">
-                    <h3>Control y Velocidad</h3>
+                    <h3>Control and Speed</h3>
                     <ul>
                         <li>Rango de velocidad: 0.00001 a 0.49999 in/min (0.00001 a 12.9999 mm/min)</li>
-                        <li>Canales de datos: 4</li>
+                        <li>Anillo de carga: 2200 lbf (10 kN) de capacidad</li>
                         <li>Voltaje: 110/220 VAC 50/60 Hz</li>
                         <li>Corriente: 6.5 amperios</li>
                     </ul>
@@ -74,53 +78,279 @@
                 <div class="specs-group">
                     <h3>Dimensiones</h3>
                     <ul>
-                        <li>30" x 15.5" x 22" (760 x 394 x 558 mm)</li>
-                        <li>Peso de envío: 200 lb (90.7 kg)</li>
+                        <li>40" x 10" x 45" (1016 x 254 x 1143 mm)</li>
+                        <li>Peso de envío: 168 lb (76 kg)</li>
                     </ul>
                 </div>
                 
                 <div class="specs-group">
-                    <h3>Requisitos del Sistema</h3>
+                    <h3>Instrumentación Incluida</h3>
                     <ul>
-                        <li>Suministro de AC: 110/220 VAC 50/60 Hz 5 Amp</li>
-                        <li>Suministro de aire: Limpio y seco (filtro de aire, trampa de agua)</li>
-                        <li>Presión mínima: 100 psi (700 kPa)</li>
-                        <li>Flujo de aire: 4.2 CFM (0.12 m³/min) continuo</li>
+                        <li>Anillo de carga de 2200 lbf (10 kN)</li>
+                        <li>Indicador de carátula 1.0" x 0.001" (25.4 x 0.01 mm)</li>
+                        <li>Indicador de carátula 0.5" x 0.0001" (12 x 0.002 mm)</li>
                     </ul>
                 </div>
             </div>
             
             <div class="notes">
                 <h4>Notas importantes:</h4>
-                <p>• La máquina incluye un dispositivo de contrapeso para cumplimiento con ASTM D3080</p>
+                <p>• La máquina incluye un dispositivo de contrapeso para cumplimiento con ASTM D3080 (HM-2560A.1)</p>
                 <p>• El software HM-5700SW no está incluido y debe solicitarse por separado</p>
                 <p>• Las assemblies de caja de corte y accesorios relacionados no están incluidos</p>
             </div>
         </section>
         
+        <!-- Sección: Partes de la Máquina -->
+        <section id="partes" class="section">
+            <h2>Partes de la Máquina HM-5750</h2>
+            <p>Conozca los componentes principales de la máquina de corte directo y su función en el ensayo.</p>
+            
+            <div class="parts-container">
+                <div class="parts-diagram">
+                    <h3>Diagrama de Partes</h3>
+                    <div class="diagram-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Diagrama de partes de la HM-5750</p>
+                    </div>
+                </div>
+                
+                <div class="parts-list">
+                    <h3>Lista de Partes Principales</h3>
+                    
+                    <div class="part-item">
+                        <div class="part-number">1</div>
+                        <div>
+                            <h4>Marco Principal</h4>
+                            <p>Estructura de soporte que contiene todos los componentes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="part-item">
+                        <div class="part-number">2</div>
+                        <div>
+                            <h4>Caja de Corte</h4>
+                            <p>Recipiente dividido donde se coloca la muestra de suelo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="part-item">
+                        <div class="part-number">3</div>
+                        <div>
+                            <h4>Sistema de Aplicación de Carga</h4>
+                            <p>Brazo de palanca con relación 10:1 para aplicar carga vertical</p>
+                        </div>
+                    </div>
+                    
+                    <div class="part-item">
+                        <div class="part-number">4</div>
+                        <div>
+                            <h4>Anillo de Carga</h4>
+                            <p>Dispositivo para medir la fuerza de corte (10 kN capacidad)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="part-item">
+                        <div class="part-number">5</div>
+                        <div>
+                            <h4>Indicadores de Carátula</h4>
+                            <p>Medición de deformaciones horizontal y vertical</p>
+                        </div>
+                    </div>
+                    
+                    <div class="part-item">
+                        <div class="part-number">6</div>
+                        <div>
+                            <h4>Mecanismo de Avance</h4>
+                            <p>Motor paso a paso para aplicar desplazamiento horizontal</p>
+                        </div>
+                    </div>
+                    
+                    <div class="part-item">
+                        <div class="part-number">7</div>
+                        <div>
+                            <h4>Contrapeso</h4>
+                            <p>Dispositivo para cumplimiento con ASTM D3080</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <h4><i class="fas fa-exclamation-triangle"></i> Precauciones de Seguridad</h4>
+                <p>La máquina incluye una característica de seguridad incorporada que previene la sobrecarga del sistema de medición de carga. Siempre verifique que todos los componentes estén bien asegurados antes de operar la máquina.</p>
+            </div>
+        </section>
+        
+        <!-- Sección: Protocolo de Ensayo -->
+        <section id="protocolo" class="section">
+            <h2>Protocolo de Ensayo de Corte Directo</h2>
+            <p>Siga este protocolo detallado para realizar correctamente un ensayo de corte directo con la máquina HM-5750.</p>
+            
+            <div class="protocol-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Preparación de la Máquina</h3>
+                        <p>Verifique que la máquina esté nivelada y estable. Asegure todos los componentes y verifique que los indicadores estén en cero.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Montaje de la Caja de Corte</h3>
+                        <p>Ensemble la caja de corte con las placas porosas y la placa de grid. Asegure los tornillos de sujeción (tornillos negros).</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Preparación de la Muestra</h3>
+                        <p>Prepare la muestra de suelo según el estándar aplicable (ASTM D3080). Coloque la muestra en la caja de corte.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Compactación de la Muestra</h3>
+                        <p>Utilice el dolly/tamper para compactar la muestra hasta la altura requerida según el método de compactación especificado.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Saturación (si es requerida)</h3>
+                        <p>Para ensayos saturados, inunde la caja con agua permitiendo su saturación durante el tiempo especificado.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Ajuste de Tornillos</h3>
+                        <p>Retire los tornillos de sujeción negros y reemplácelos con los tornillos rojos. Dé medio giro a los tornillos rojos para permitir el desplazamiento.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Aplicación de Carga Normal</h3>
+                        <p>Coloque los pesos muertos en el brazo de carga para aplicar la carga vertical deseada.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h3>Inicio del Ensayo de Corte</h3>
+                        <p>Active el mecanismo de avance para aplicar desplazamiento horizontal a la velocidad seleccionada.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">9</div>
+                    <div class="step-content">
+                        <h3>Registro de Datos</h3>
+                        <p>Registre periódicamente la fuerza de corte y las deformaciones hasta alcanzar la falla o la deformación máxima.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">10</div>
+                    <div class="step-content">
+                        <h3>Finalización y Análisis</h3>
+                        <p>Detenga el ensayo, retire la muestra y limpie los componentes. Analice los resultados para determinar los parámetros de resistencia al corte.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección: Preparación de Muestra -->
+        <section id="preparacion" class="section">
+            <h2>Preparación de la Muestra</h2>
+            <p>La correcta preparación de la muestra es crucial para obtener resultados confiables en el ensayo de corte directo.</p>
+            
+            <h3>Métodos de Preparación de Muestras</h3>
+            
+            <div class="specs-container">
+                <div class="specs-group">
+                    <h3>Muestras Inalteradas</h3>
+                    <ul>
+                        <li>Extracción cuidadosa con muestreador tubular</li>
+                        <li>Preservación de la estructura natural del suelo</li>
+                        <li>Uso de cortador para obtener muestra del tamaño correcto</li>
+                        <li>Mantenimiento del contenido de humedad natural</li>
+                    </ul>
+                </div>
+                
+                <div class="specs-group">
+                    <h3>Muestras Remoldeadas</h3>
+                    <ul>
+                        <li>Preparación a densidad y contenido de humedad específicos</li>
+                        <li>Compactación en capas con tamper o dolly</li>
+                        <li>Control preciso de parámetros de compactación</li>
+                        <li>Uso de moldes de preparación</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Proceso de Compactación</h3>
+            <p>Para muestras remoldeadas, el proceso de compactación debe seguir estos pasos:</p>
+            
+            <div class="protocol-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Determinación de Parámetros</h3>
+                        <p>Establezca la densidad seca y contenido de humedad deseados según el proyecto.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Preparación de Material</h3>
+                        <p>Pese la cantidad necesaria de suelo y agregue agua para alcanzar el contenido de humedad requerido.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Compactación en Capas</h3>
+                        <p>Divida la muestra en partes iguales y compacte cada capa con el dolly/tamper hasta alcanzar la altura especificada.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Verificación</h3>
+                        <p>Verifique la altura final y el peso de la muestra para asegurar que cumple con los requisitos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <h4><i class="fas fa-exclamation-triangle"></i> Importante</h4>
+                <p>El proceso de saturación (cuando se requiere) debe realizarse después de la compactación y antes del ensayo de corte. El tiempo de saturación varía según el tipo de suelo y debe seguir las especificaciones del estándar aplicable.</p>
+            </div>
+        </section>
+        
+        <!-- Sección: Simulación -->
         <section id="simulacion" class="section">
-            <h2>Simulación de la Máquina de Corte Directo HM-5755</h2>
-            <p>Utilice los controles siguientes para interactuar con la simulación. Ajuste los parámetros del suelo y observe cómo afectan a la resistencia al corte.</p>
+            <h2>Simulación de Ensayo de Corte Directo</h2>
+            <p>Utilice esta simulación interactiva para comprender el proceso de ensayo de corte directo con la máquina HM-5750.</p>
             
             <div class="simulation-container">
                 <div class="machine-representation">
                     <div class="canvas-container">
                         <canvas id="simulationCanvas"></canvas>
-                    </div>
-                    
-                    <div class="pneumatic-controls">
-                        <h3>Controles Neumáticos</h3>
-                        <div class="valve-controls">
-                            <div class="valve">
-                                <label for="pressureInput">Presión de Aire (psi):</label>
-                                <input type="range" id="pressureInput" min="0" max="100" value="70">
-                                <span id="pressureValue">70 psi</span>
-                            </div>
-                            <div class="valve-status">
-                                <span id="valveStatus">Válvula Cerrada</span>
-                                <button id="toggleValve">Abrir Válvula</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
@@ -144,9 +374,11 @@
                     </div>
                     
                     <div class="control-group">
-                        <label for="speed">Velocidad de corte [mm/min]:</label>
-                        <input type="range" id="speed" min="0.01" max="12.99" step="0.01" value="1.20">
-                        <span id="speedValue">1.20 mm/min</span>
+                        <label for="saturation">Grado de saturación:</label>
+                        <select id="saturation">
+                            <option value="unsat">No Saturado</option>
+                            <option value="sat">Saturado</option>
+                        </select>
                     </div>
                 </div>
                 
@@ -189,105 +421,60 @@
             </div>
         </section>
         
-        <section id="procedimiento" class="section">
-            <h2>Procedimiento de Operación HM-5755</h2>
+        <!-- Sección: Resultados -->
+        <section id="resultados" class="section">
+            <h2>Interpretación de Resultados</h2>
+            <p>Análisis de los datos obtenidos del ensayo de corte directo y determinación de parámetros de resistencia al corte.</p>
             
-            <div class="procedure-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Preparación de la Muestra</h3>
-                        <p>Prepare la muestra de suelo según el estándar aplicable (ASTM D3080). Coloque la muestra en la caja de corte entre las placas porosas.</p>
-                    </div>
+            <h3>Parámetros de Resistencia al Corte</h3>
+            <p>El ensayo de corte directo permite determinar dos parámetros fundamentales de resistencia al corte del suelo:</p>
+            
+            <div class="specs-container">
+                <div class="specs-group">
+                    <h3>Cohesión (c)</h3>
+                    <p>Resistencia al corte independiente de la carga normal, resultante de la cementación o atracción molecular entre partículas.</p>
                 </div>
                 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Aplicación de Carga Normal</h3>
-                        <p>Utilice los controles neumáticos para aplicar la carga vertical deseada. Ajuste la presión de aire según la carga normal requerida.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Inicio del Ensayo de Corte</h3>
-                        <p>Seleccione la velocidad de corte apropiada e inicie el movimiento horizontal. La máquina aplicará fuerza de corte gradualmente.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Monitoreo y Registro</h3>
-                        <p>Monitoree la fuerza de corte y las deformaciones en la pantalla táctil. El sistema registrará automáticamente todos los datos del ensayo.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Finalización y Análisis</h3>
-                        <p>Cuando se alcanza la falla o la deformación máxima, detenga el ensayo. Analice los resultados para determinar los parámetros de resistencia al corte.</p>
-                    </div>
+                <div class="specs-group">
+                    <h3>Ángulo de Fricción (φ)</h3>
+                    <p>Resistencia al corte que depende de la carga normal, resultante del entrelazamiento y fricción entre partículas.</p>
                 </div>
             </div>
             
-            <div class="safety-notes">
-                <h3>Consideraciones de Seguridad</h3>
-                <ul>
-                    <li>El HM-5755 incluye una característica de seguridad incorporada que previene la sobrecarga del sistema de medición de carga.</li>
-                    <li>Siempre verifique que las conexiones neumáticas estén seguras antes de operar la máquina.</li>
-                    <li>Utilice el dispositivo de contrapeso para cumplimiento con ASTM D3080.</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="aplicaciones" class="section">
-            <h2>Aplicaciones en Ingeniería Geotécnica</h2>
-            <p>Los parámetros de resistencia al corte obtenidos con la máquina de corte directo HM-5755 son esenciales para:</p>
+            <h3>Criterio de Falla de Mohr-Coulomb</h3>
+            <p>La resistencia al corte del suelo (τ) se calcula mediante la ecuación:</p>
+            <p class="formula">τ = c + σ · tan(φ)</p>
+            <p>Donde σ es el esfuerzo normal aplicado.</p>
             
-            <div class="applications-grid">
-                <div class="application">
-                    <h3>Diseño de Cimentaciones</h3>
-                    <p>Determinación de la capacidad de carga del suelo para cimentaciones superficiales y profundas.</p>
+            <h3>Análisis de Resultados Típicos</h3>
+            
+            <div class="results-chart">
+                <h4>Envolvente de Falla</h4>
+                <canvas id="mohrCanvas" height="200"></canvas>
+            </div>
+            
+            <h3>Recomendaciones para la Interpretación</h3>
+            
+            <div class="recommendations">
+                <div class="recommendation">
+                    <h3><i class="fas fa-check-circle"></i> Verifique la Calidad de los Datos</h3>
+                    <p>Revise que las curvas esfuerzo-deformación muestren un comportamiento consistente y que la falla esté claramente definida.</p>
                 </div>
                 
-                <div class="application">
-                    <h3>Estabilidad de Taludes</h3>
-                    <p>Análisis de la estabilidad de taludes naturales y cortes artificiales.</p>
+                <div class="recommendation">
+                    <h3><i class="fas fa-check-circle"></i> Realice Múltiples Ensayos</h3>
+                    <p>Ejecute al menos tres ensayos con diferentes esfuerzos normales para definir adecuadamente la envolvente de falla.</p>
                 </div>
                 
-                <div class="application">
-                    <h3>Muros de Contención</h3>
-                    <p>Cálculo de empujes de tierra para el diseño de muros de contención.</p>
-                </div>
-                
-                <div class="application">
-                    <h3>Pavimentos</h3>
-                    <p>Evaluación de la resistencia al corte de materiales para bases de pavimentos.</p>
-                </div>
-                
-                <div class="application">
-                    <h3>Estructuras de Tierra Reforzada</h3>
-                    <p>Diseño de estructuras con refuerzo geosintético y suelo reforzado.</p>
-                </div>
-                
-                <div class="application">
-                    <h3>Presas de Tierra</h3>
-                    <p>Análisis de estabilidad para presas de tierra y enrocamiento.</p>
+                <div class="recommendation">
+                    <h3><i class="fas fa-check-circle"></i> Considere las Condiciones de Drenaje</h3>
+                    <p>Interprete los resultados considerando si el ensayo se realizó en condiciones drenadas o no drenadas.</p>
                 </div>
             </div>
             
-            <div class="standards-compliance">
-                <h3>Cumplimiento con Normativas</h3>
-                <p>El HM-5755 cumple con los siguientes estándares internacionales:</p>
-                <ul>
-                    <li>ASTM D3080 - Standard Test Method for Direct Shear Test of Soils Under Consolidated Drained Conditions</li>
-                    <li>AASHTO T236 - Standard Method of Test for Direct Shear Test of Soils</li>
-                    <li>BS 1377-7:1990 - Methods of test for soils for civil engineering purposes. Shear strength tests (total stress)</li>
-                </ul>
+            <div class="warning">
+                <h4><i class="fas fa-exclamation-triangle"></i> Limitaciones del Ensayo</h4>
+                <p>El ensayo de corte directo tiene algunas limitaciones, como la imposibilidad de controlar la presión de poro durante el corte y la presencia de un plano de falla predeterminado. Estos factores deben considerarse al interpretar los resultados.</p>
             </div>
         </section>
     </div>
@@ -307,7 +494,7 @@
             </div>
             
             <div class="footer-section">
-                <p>Simulación de Máquina de Corte Directo HM-5755 - Herramienta educativa para ingeniería geotécnica</p>
+                <p>Simulación de Máquina de Corte Directo HM-5750 - Herramienta educativa para ingeniería geotécnica</p>
                 <p>© 2023 - Todos los derechos reservados</p>
                 <p>www.humboldtmfg.com</p>
             </div>
