@@ -1,507 +1,564 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Máquina de Corte Directo Humboldt HM-5750 - Simulación Educativa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="logo-container">
-            <div class="logo">
-                <i class="fas fa-tools"></i>
-            </div>
-            <div class="branding">
-                <h1>Humboldt HM-5750</h1>
-                <h2>Máquina de Corte Directo con Pesos Muertos</h2>
-                <p>Simulación educativa para ensayos geotécnicos - ASTM D3080, AASHTO T236, BS 1377.7</p>
-            </div>
-        </div>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#maquina" onclick="showSection('maquina')"><i class="fas fa-cogs"></i> La Máquina</a></li>
-            <li><a href="#partes" onclick="showSection('partes')"><i class="fas fa-toolbox"></i> Partes</a></li>
-            <li><a href="#protocolo" onclick="showSection('protocolo')"><i class="fas fa-clipboard-list"></i> Protocolo</a></li>
-            <li><a href="#preparacion" onclick="showSection('preparacion')"><i class="fas fa-vial"></i> Preparación</a></li>
-            <li><a href="#simulacion" onclick="showSection('simulacion')"><i class="fas fa-play-circle"></i> Simulación</a></li>
-            <li><a href="#resultados" onclick="showSection('resultados')"><i class="fas fa-chart-line"></i> Resultados</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <!-- Sección: La Máquina -->
-        <section id="maquina" class="section active">
-            <h2>Máquina de Corte Directo Humboldt HM-5750</h2>
-            <p>La máquina de corte directo Humboldt HM-5750 es un equipo de pesos muertos utilizado para determinar la resistencia al corte de suelos mediante el método de corte directo. Es una herramienta esencial en laboratorios de geotecnia para el análisis de propiedades de suelo en proyectos de ingeniería civil.</p>
-            
-            <div class="machine-features">
-                <div class="feature">
-                    <h3><i class="fas fa-weight-hanging"></i> Sistema de Pesos Muertos</h3>
-                    <p>Aplicación precisa de cargas verticales mediante pesos calibrados</p>
-                </div>
-                <div class="feature">
-                    <h3><i class="fas fa-ruler-combined"></i> Medición Analógica</h3>
-                    <p>Anillos de carga y indicadores de carátula para mediciones precisas</p>
-                </div>
-                <div class="feature">
-                    <h3><i class="fas fa-forward"></i> Corte Directo/Residual</h3>
-                    <p>Capacidad para realizar ensayos de corte directo y residual</p>
-                </div>
-            </div>
-            
-            <h3>Especificaciones Técnicas HM-5750</h3>
-            
-            <div class="specs-container">
-                <div class="specs-group">
-                    <h3>Capacidades de Carga</h3>
-                    <ul>
-                        <li>Fuerza de corte horizontal: 2000 lbf (10 kN)</li>
-                        <li>Carga vertical: 2000 lbf (10 kN)</li>
-                        <li>Movimiento horizontal máximo: 2" (50 mm)</li>
-                    </ul>
-                </div>
-                
-                <div class="specs-group">
-                    <h3>Control and Speed</h3>
-                    <ul>
-                        <li>Rango de velocidad: 0.00001 a 0.49999 in/min (0.00001 a 12.9999 mm/min)</li>
-                        <li>Anillo de carga: 2200 lbf (10 kN) de capacidad</li>
-                        <li>Voltaje: 110/220 VAC 50/60 Hz</li>
-                        <li>Corriente: 6.5 amperios</li>
-                    </ul>
-                </div>
-                
-                <div class="specs-group">
-                    <h3>Dimensiones</h3>
-                    <ul>
-                        <li>40" x 10" x 45" (1016 x 254 x 1143 mm)</li>
-                        <li>Peso de envío: 168 lb (76 kg)</li>
-                    </ul>
-                </div>
-                
-                <div class="specs-group">
-                    <h3>Instrumentación Incluida</h3>
-                    <ul>
-                        <li>Anillo de carga de 2200 lbf (10 kN)</li>
-                        <li>Indicador de carátula 1.0" x 0.001" (25.4 x 0.01 mm)</li>
-                        <li>Indicador de carátula 0.5" x 0.0001" (12 x 0.002 mm)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="notes">
-                <h4>Notas importantes:</h4>
-                <p>• La máquina incluye un dispositivo de contrapeso para cumplimiento con ASTM D3080 (HM-2560A.1)</p>
-                <p>• El software HM-5700SW no está incluido y debe solicitarse por separado</p>
-                <p>• Las assemblies de caja de corte y accesorios relacionados no están incluidos</p>
-            </div>
-        </section>
-        
-        <!-- Sección: Partes de la Máquina -->
-        <section id="partes" class="section">
-            <h2>Partes de la Máquina HM-5750</h2>
-            <p>Conozca los componentes principales de la máquina de corte directo y su función en el ensayo.</p>
-            
-            <div class="parts-container">
-                <div class="parts-diagram">
-                    <h3>Diagrama de Partes</h3>
-                    <div class="diagram-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Diagrama de partes de la HM-5750</p>
-                    </div>
-                </div>
-                
-                <div class="parts-list">
-                    <h3>Lista de Partes Principales</h3>
-                    
-                    <div class="part-item">
-                        <div class="part-number">1</div>
-                        <div>
-                            <h4>Marco Principal</h4>
-                            <p>Estructura de soporte que contiene todos los componentes</p>
-                        </div>
-                    </div>
-                    
-                    <div class="part-item">
-                        <div class="part-number">2</div>
-                        <div>
-                            <h4>Caja de Corte</h4>
-                            <p>Recipiente dividido donde se coloca la muestra de suelo</p>
-                        </div>
-                    </div>
-                    
-                    <div class="part-item">
-                        <div class="part-number">3</div>
-                        <div>
-                            <h4>Sistema de Aplicación de Carga</h4>
-                            <p>Brazo de palanca con relación 10:1 para aplicar carga vertical</p>
-                        </div>
-                    </div>
-                    
-                    <div class="part-item">
-                        <div class="part-number">4</div>
-                        <div>
-                            <h4>Anillo de Carga</h4>
-                            <p>Dispositivo para medir la fuerza de corte (10 kN capacidad)</p>
-                        </div>
-                    </div>
-                    
-                    <div class="part-item">
-                        <div class="part-number">5</div>
-                        <div>
-                            <h4>Indicadores de Carátula</h4>
-                            <p>Medición de deformaciones horizontal y vertical</p>
-                        </div>
-                    </div>
-                    
-                    <div class="part-item">
-                        <div class="part-number">6</div>
-                        <div>
-                            <h4>Mecanismo de Avance</h4>
-                            <p>Motor paso a paso para aplicar desplazamiento horizontal</p>
-                        </div>
-                    </div>
-                    
-                    <div class="part-item">
-                        <div class="part-number">7</div>
-                        <div>
-                            <h4>Contrapeso</h4>
-                            <p>Dispositivo para cumplimiento con ASTM D3080</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="warning">
-                <h4><i class="fas fa-exclamation-triangle"></i> Precauciones de Seguridad</h4>
-                <p>La máquina incluye una característica de seguridad incorporada que previene la sobrecarga del sistema de medición de carga. Siempre verifique que todos los componentes estén bien asegurados antes de operar la máquina.</p>
-            </div>
-        </section>
-        
-        <!-- Sección: Protocolo de Ensayo -->
-        <section id="protocolo" class="section">
-            <h2>Protocolo de Ensayo de Corte Directo</h2>
-            <p>Siga este protocolo detallado para realizar correctamente un ensayo de corte directo con la máquina HM-5750.</p>
-            
-            <div class="protocol-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Preparación de la Máquina</h3>
-                        <p>Verifique que la máquina esté nivelada y estable. Asegure todos los componentes y verifique que los indicadores estén en cero.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Montaje de la Caja de Corte</h3>
-                        <p>Ensemble la caja de corte con las placas porosas y la placa de grid. Asegure los tornillos de sujeción (tornillos negros).</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Preparación de la Muestra</h3>
-                        <p>Prepare la muestra de suelo según el estándar aplicable (ASTM D3080). Coloque la muestra en la caja de corte.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Compactación de la Muestra</h3>
-                        <p>Utilice el dolly/tamper para compactar la muestra hasta la altura requerida según el método de compactación especificado.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Saturación (si es requerida)</h3>
-                        <p>Para ensayos saturados, inunde la caja con agua permitiendo su saturación durante el tiempo especificado.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h3>Ajuste de Tornillos</h3>
-                        <p>Retire los tornillos de sujeción negros y reemplácelos con los tornillos rojos. Dé medio giro a los tornillos rojos para permitir el desplazamiento.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">7</div>
-                    <div class="step-content">
-                        <h3>Aplicación de Carga Normal</h3>
-                        <p>Coloque los pesos muertos en el brazo de carga para aplicar la carga vertical deseada.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">8</div>
-                    <div class="step-content">
-                        <h3>Inicio del Ensayo de Corte</h3>
-                        <p>Active el mecanismo de avance para aplicar desplazamiento horizontal a la velocidad seleccionada.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">9</div>
-                    <div class="step-content">
-                        <h3>Registro de Datos</h3>
-                        <p>Registre periódicamente la fuerza de corte y las deformaciones hasta alcanzar la falla o la deformación máxima.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">10</div>
-                    <div class="step-content">
-                        <h3>Finalización y Análisis</h3>
-                        <p>Detenga el ensayo, retire la muestra y limpie los componentes. Analice los resultados para determinar los parámetros de resistencia al corte.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Sección: Preparación de Muestra -->
-        <section id="preparacion" class="section">
-            <h2>Preparación de la Muestra</h2>
-            <p>La correcta preparación de la muestra es crucial para obtener resultados confiables en el ensayo de corte directo.</p>
-            
-            <h3>Métodos de Preparación de Muestras</h3>
-            
-            <div class="specs-container">
-                <div class="specs-group">
-                    <h3>Muestras Inalteradas</h3>
-                    <ul>
-                        <li>Extracción cuidadosa con muestreador tubular</li>
-                        <li>Preservación de la estructura natural del suelo</li>
-                        <li>Uso de cortador para obtener muestra del tamaño correcto</li>
-                        <li>Mantenimiento del contenido de humedad natural</li>
-                    </ul>
-                </div>
-                
-                <div class="specs-group">
-                    <h3>Muestras Remoldeadas</h3>
-                    <ul>
-                        <li>Preparación a densidad y contenido de humedad específicos</li>
-                        <li>Compactación en capas con tamper o dolly</li>
-                        <li>Control preciso de parámetros de compactación</li>
-                        <li>Uso de moldes de preparación</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Proceso de Compactación</h3>
-            <p>Para muestras remoldeadas, el proceso de compactación debe seguir estos pasos:</p>
-            
-            <div class="protocol-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Determinación de Parámetros</h3>
-                        <p>Establezca la densidad seca y contenido de humedad deseados según el proyecto.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Preparación de Material</h3>
-                        <p>Pese la cantidad necesaria de suelo y agregue agua para alcanzar el contenido de humedad requerido.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Compactación en Capas</h3>
-                        <p>Divida la muestra en partes iguales y compacte cada capa con el dolly/tamper hasta alcanzar la altura especificada.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Verificación</h3>
-                        <p>Verifique la altura final y el peso de la muestra para asegurar que cumple con los requisitos.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="warning">
-                <h4><i class="fas fa-exclamation-triangle"></i> Importante</h4>
-                <p>El proceso de saturación (cuando se requiere) debe realizarse después de la compactación y antes del ensayo de corte. El tiempo de saturación varía según el tipo de suelo y debe seguir las especificaciones del estándar aplicable.</p>
-            </div>
-        </section>
-        
-        <!-- Sección: Simulación -->
-        <section id="simulacion" class="section">
-            <h2>Simulación de Ensayo de Corte Directo</h2>
-            <p>Utilice esta simulación interactiva para comprender el proceso de ensayo de corte directo con la máquina HM-5750.</p>
-            
-            <div class="simulation-container">
-                <div class="machine-representation">
-                    <div class="canvas-container">
-                        <canvas id="simulationCanvas"></canvas>
-                    </div>
-                </div>
-                
-                <div class="controls">
-                    <div class="control-group">
-                        <label for="cohesion">Cohesión (c) [kPa]:</label>
-                        <input type="range" id="cohesion" min="0" max="50" value="10">
-                        <span id="cohesionValue">10 kPa</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="friction">Ángulo de fricción (φ) [°]:</label>
-                        <input type="range" id="friction" min="0" max="45" value="30">
-                        <span id="frictionValue">30°</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="normalStress">Esfuerzo normal (σ) [kPa]:</label>
-                        <input type="range" id="normalStress" min="50" max="500" value="200">
-                        <span id="normalStressValue">200 kPa</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="saturation">Grado de saturación:</label>
-                        <select id="saturation">
-                            <option value="unsat">No Saturado</option>
-                            <option value="sat">Saturado</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="button-group">
-                    <button id="startBtn">Iniciar Ensayo</button>
-                    <button id="pauseBtn" disabled>Pausar</button>
-                    <button id="resetBtn" class="reset">Reiniciar</button>
-                </div>
-                
-                <div class="results">
-                    <h3>Resultados del Ensayo en Tiempo Real</h3>
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <span class="result-label">Resistencia al corte (τ):</span>
-                            <span id="shearStrength" class="result-value">-</span>
-                            <span class="result-unit">kPa</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Deformación horizontal:</span>
-                            <span id="horizontalDeformation" class="result-value">-</span>
-                            <span class="result-unit">mm</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Fuerza de corte:</span>
-                            <span id="shearForce" class="result-value">-</span>
-                            <span class="result-unit">N</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Deformación vertical:</span>
-                            <span id="verticalDeformation" class="result-value">-</span>
-                            <span class="result-unit">mm</span>
-                        </div>
-                    </div>
-                    
-                    <div class="results-chart">
-                        <h4>Curva Esfuerzo-Deformación</h4>
-                        <canvas id="chartCanvas" height="200"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Sección: Resultados -->
-        <section id="resultados" class="section">
-            <h2>Interpretación de Resultados</h2>
-            <p>Análisis de los datos obtenidos del ensayo de corte directo y determinación de parámetros de resistencia al corte.</p>
-            
-            <h3>Parámetros de Resistencia al Corte</h3>
-            <p>El ensayo de corte directo permite determinar dos parámetros fundamentales de resistencia al corte del suelo:</p>
-            
-            <div class="specs-container">
-                <div class="specs-group">
-                    <h3>Cohesión (c)</h3>
-                    <p>Resistencia al corte independiente de la carga normal, resultante de la cementación o atracción molecular entre partículas.</p>
-                </div>
-                
-                <div class="specs-group">
-                    <h3>Ángulo de Fricción (φ)</h3>
-                    <p>Resistencia al corte que depende de la carga normal, resultante del entrelazamiento y fricción entre partículas.</p>
-                </div>
-            </div>
-            
-            <h3>Criterio de Falla de Mohr-Coulomb</h3>
-            <p>La resistencia al corte del suelo (τ) se calcula mediante la ecuación:</p>
-            <p class="formula">τ = c + σ · tan(φ)</p>
-            <p>Donde σ es el esfuerzo normal aplicado.</p>
-            
-            <h3>Análisis de Resultados Típicos</h3>
-            
-            <div class="results-chart">
-                <h4>Envolvente de Falla</h4>
-                <canvas id="mohrCanvas" height="200"></canvas>
-            </div>
-            
-            <h3>Recomendaciones para la Interpretación</h3>
-            
-            <div class="recommendations">
-                <div class="recommendation">
-                    <h3><i class="fas fa-check-circle"></i> Verifique la Calidad de los Datos</h3>
-                    <p>Revise que las curvas esfuerzo-deformación muestren un comportamiento consistente y que la falla esté claramente definida.</p>
-                </div>
-                
-                <div class="recommendation">
-                    <h3><i class="fas fa-check-circle"></i> Realice Múltiples Ensayos</h3>
-                    <p>Ejecute al menos tres ensayos con diferentes esfuerzos normales para definir adecuadamente la envolvente de falla.</p>
-                </div>
-                
-                <div class="recommendation">
-                    <h3><i class="fas fa-check-circle"></i> Considere las Condiciones de Drenaje</h3>
-                    <p>Interprete los resultados considerando si el ensayo se realizó en condiciones drenadas o no drenadas.</p>
-                </div>
-            </div>
-            
-            <div class="warning">
-                <h4><i class="fas fa-exclamation-triangle"></i> Limitaciones del Ensayo</h4>
-                <p>El ensayo de corte directo tiene algunas limitaciones, como la imposibilidad de controlar la presión de poro durante el corte y la presencia de un plano de falla predeterminado. Estos factores deben considerarse al interpretar los resultados.</p>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Humboldt Mfg. Co.</h4>
-                <p>875 Tollgate Road, Elgin, Illinois 60123</p>
-                <p>1.800.544.7220 toll free | 1.708.468.6300 main</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Humboldt Scientific, Inc.</h4>
-                <p>2525 Atlantic Avenue, Raleigh, North Carolina 27604</p>
-                <p>1.800.537.4183 toll free | 1.919.833.3190 main</p>
-            </div>
-            
-            <div class="footer-section">
-                <p>Simulación de Máquina de Corte Directo HM-5750 - Herramienta educativa para ingeniería geotécnica</p>
-                <p>© 2023 - Todos los derechos reservados</p>
-                <p>www.humboldtmfg.com</p>
-            </div>
-        </div>
-    </footer>
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --humboldt-blue: #005792;
+    --humboldt-light-blue: #d1e6f9;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+}
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--humboldt-blue), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-right: 1rem;
+}
+
+.branding h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.branding h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.branding p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+nav {
+    background-color: var(--dark-color);
+    padding: 0.8rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a i {
+    margin-right: 0.5rem;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* Machine Features */
+.machine-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    background-color: var(--humboldt-light-blue);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--humboldt-blue);
+}
+
+.feature h3 {
+    color: var(--humboldt-blue);
+    margin-bottom: 0.5rem;
+}
+
+/* Specifications */
+.specs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.specs-group {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.specs-group h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.specs-group ul {
+    list-style-type: none;
+}
+
+.specs-group li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.specs-group li:last-child {
+    border-bottom: none;
+}
+
+.notes {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.notes h4 {
+    color: #856404;
+    margin-bottom: 0.5rem;
+}
+
+.notes p {
+    margin-bottom: 0.5rem;
+}
+
+/* Machine Parts */
+.parts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.parts-diagram {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.diagram-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.diagram-placeholder i {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.parts-list {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.part-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.part-item:last-child {
+    border-bottom: none;
+}
+
+.part-number {
+    background-color: var(--humboldt-blue);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+/* Protocol Steps */
+.protocol-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    background-color: var(--humboldt-blue);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    color: var(--humboldt-blue);
+    margin-bottom: 0.5rem;
+}
+
+.warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    border-left: 4px solid #dc3545;
+}
+
+.warning h4 {
+    color: #721c24;
+    margin-bottom: 0.5rem;
+}
+
+/* Simulation Container */
+.simulation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.machine-representation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.canvas-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.control-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+button.reset {
+    background-color: var(--accent-color);
+}
+
+button.reset:hover {
+    background-color: #c0392b;
+}
+
+/* Results */
+.results {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 2rem;
+}
+
+.results h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--humboldt-blue);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.result-item {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.result-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.result-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--humboldt-blue);
+}
+
+.result-unit {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.results-chart {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 1.5rem;
+}
+
+.results-chart h4 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Formula */
+.formula {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Recommendations */
+.recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.recommendation {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--success-color);
+}
+
+.recommendation h3 {
+    color: var(--success-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    nav ul li {
+        margin: 0.25rem 0;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    .parts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
