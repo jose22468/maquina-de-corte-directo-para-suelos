@@ -964,3 +964,38 @@ footer {
         padding: 0;
     }
 }
+
+
+/* FIX para botones que se mueven */
+.button-group {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+}
+
+.button-group button {
+    position: relative;
+    z-index: 11;
+    transform: none !important; /* Previene transformaciones infinitas */
+}
+
+/* Asegurar que los botones no tengan animaciones problemáticas */
+button {
+    animation: none !important;
+    transition: background-color 0.3s ease !important;
+}
+
+/* Contenedor de simulación fijo */
+.simulation-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.canvas-container {
+    position: relative;
+    z-index: 1;
+}
