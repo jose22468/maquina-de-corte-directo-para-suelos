@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación - Humboldt HM-5750</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+            </div>
+            <div class="branding">
+                <h1>Humboldt HM-5750</h1>
+                <h2>Máquina de Corte Directo con Pesos Muertos</h2>
+                <p>Simulación educativa para ensayos geotécnicos - ASTM D3080, AASHTO T236, BS 1377.7</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="la-maquina.html"><i class="fas fa-cogs"></i> La Máquina</a></li>
+            <li><a href="partes.html"><i class="fas fa-toolbox"></i> Partes</a></li>
+            <li><a href="protocolo.html"><i class="fas fa-clipboard-list"></i> Protocolo</a></li>
+            <li><a href="preparacion.html"><i class="fas fa-vial"></i> Preparación</a></li>
+            <li><a href="simulacion.html" class="active"><i class="fas fa-play-circle"></i> Simulación</a></li>
+            <li><a href="resultados.html"><i class="fas fa-chart-line"></i> Resultados</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="section active">
+            <h2>Simulación del Ensayo de Corte Directo</h2>
+            <p>Utilice esta simulación interactiva para experimentar con diferentes tipos de suelo y condiciones de ensayo.</p>
+            
+            <div class="simulation-container">
+                <div class="controls-panel">
+                    <h3>Parámetros de la Simulación</h3>
+                    
+                    <div class="control-group">
+                        <label for="soilType">Tipo de Suelo:</label>
+                        <select id="soilType">
+                            <option value="sand">Arena Limpia</option>
+                            <option value="clay">Arcilla</option>
+                            <option value="silt">Limo</option>
+                            <option value="sandClay">Arena-Arcilla</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="normalStress">Esfuerzo Normal (kPa):</label>
+                        <input type="range" id="normalStress" min="50" max="400" value="100" step="50">
+                        <span id="normalStressValue">100 kPa</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="saturation">Condición de Saturación:</label>
+                        <select id="saturation">
+                            <option value="dry">Seco</option>
+                            <option value="saturated">Saturado</option>
+                            <option value="drained">Drenado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="speed">Velocidad de Corte (mm/min):</label>
+                        <input type="range" id="speed" min="0.1" max="2.0" value="1.2" step="0.1">
+                        <span id="speedValue">1.2 mm/min</span>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="startBtn" class="btn-primary"><i class="fas fa-play"></i> Iniciar Simulación</button>
+                        <button id="resetBtn" class="btn-secondary"><i class="fas fa-redo"></i> Reiniciar</button>
+                    </div>
+                </div>
+                
+                <div class="visualization-panel">
+                    <h3>Visualización del Ensayo</h3>
+                    <div class="machine-visual">
+                        <div class="shear-box">
+                            <div class="top-half"></div>
+                            <div class="bottom-half"></div>
+                            <div class="displacement-indicator">
+                                <div class="indicator-bar"></div>
+                                <span>Desplazamiento: <span id="displacementValue">0.0 mm</span></span>
+                            </div>
+                        </div>
+                        <div class="load-indicator">
+                            <div class="load-bar">
+                                <div class="load-fill"></div>
+                            </div>
+                            <span>Fuerza de Corte: <span id="shearForceValue">0.0 kN</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="real-time-charts">
+                        <div class="chart-container">
+                            <canvas id="shearChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="simulation-data">
+                <h3>Datos en Tiempo Real</h3>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="data-label">Desplazamiento Horizontal:</span>
+                        <span class="data-value" id="realDisplacement">0.00 mm</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Fuerza de Corte:</span>
+                        <span class="data-value" id="realShearForce">0.00 kN</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Esfuerzo de Corte:</span>
+                        <span class="data-value" id="realShearStress">0.00 kPa</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="data-label">Deformación Vertical:</span>
+                        <span class="data-value" id="realVerticalStrain">0.00 mm</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Humboldt Mfg. Co.</h4>
+                <p>875 Tollgate Road, Elgin, Illinois 60123</p>
+                <p>1.800.544.7220 toll free | 1.708.468.6300 main</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Humboldt Scientific, Inc.</h4>
+                <p>2525 Atlantic Avenue, Raleigh, North Carolina 27604</p>
+                <p>1.800.537.4183 toll free | 1.919.833.3190 main</p>
+            </div>
+            
+            <div class="footer-section">
+                <p>Simulación de Máquina de Corte Directo HM-5750 - Herramienta educativa para ingeniería geotécnica</p>
+                <p>© 2023 - Todos los derechos reservados</p>
+                <p>www.humboldtmfg.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
