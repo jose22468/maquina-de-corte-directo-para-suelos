@@ -34,95 +34,117 @@
     
     <div class="container">
         <section class="section active">
-            <h2>Simulación del Ensayo de Corte Directo</h2>
-            <p>Utilice esta simulación interactiva para experimentar con diferentes tipos de suelo y condiciones de ensayo.</p>
+            <h2>Simulación de Ensayo de Corte Directo</h2>
+            <p>Utilice esta simulación interactiva para comprender el proceso de ensayo de corte directo con la máquina HM-5750. Modifique los parámetros del suelo y observe cómo afectan el comportamiento durante el corte.</p>
             
             <div class="simulation-container">
-                <div class="controls-panel">
-                    <h3>Parámetros de la Simulación</h3>
-                    
-                    <div class="control-group">
-                        <label for="soilType">Tipo de Suelo:</label>
-                        <select id="soilType">
-                            <option value="sand">Arena Limpia</option>
-                            <option value="clay">Arcilla</option>
-                            <option value="silt">Limo</option>
-                            <option value="sandClay">Arena-Arcilla</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="normalStress">Esfuerzo Normal (kPa):</label>
-                        <input type="range" id="normalStress" min="50" max="400" value="100" step="50">
-                        <span id="normalStressValue">100 kPa</span>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="saturation">Condición de Saturación:</label>
-                        <select id="saturation">
-                            <option value="dry">Seco</option>
-                            <option value="saturated">Saturado</option>
-                            <option value="drained">Drenado</option>
-                        </select>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label for="speed">Velocidad de Corte (mm/min):</label>
-                        <input type="range" id="speed" min="0.1" max="2.0" value="1.2" step="0.1">
-                        <span id="speedValue">1.2 mm/min</span>
-                    </div>
-                    
-                    <div class="button-group">
-                        <button id="startBtn" class="btn-primary"><i class="fas fa-play"></i> Iniciar Simulación</button>
-                        <button id="resetBtn" class="btn-secondary"><i class="fas fa-redo"></i> Reiniciar</button>
+                <div class="machine-representation">
+                    <div class="canvas-container">
+                        <canvas id="simulationCanvas"></canvas>
                     </div>
                 </div>
                 
-                <div class="visualization-panel">
-                    <h3>Visualización del Ensayo</h3>
-                    <div class="machine-visual">
-                        <div class="shear-box">
-                            <div class="top-half"></div>
-                            <div class="bottom-half"></div>
-                            <div class="displacement-indicator">
-                                <div class="indicator-bar"></div>
-                                <span>Desplazamiento: <span id="displacementValue">0.0 mm</span></span>
-                            </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="soilType">Tipo de Suelo:</label>
+                        <select id="soilType">
+                            <option value="sand">Arena Limpia (c=0, φ=35°)</option>
+                            <option value="clay">Arcilla (c=25 kPa, φ=20°)</option>
+                            <option value="silt">Limo (c=10 kPa, φ=28°)</option>
+                            <option value="clayeySand">Arena Arcillosa (c=15 kPa, φ=30°)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="cohesion">Cohesión (c): <span id="cohesionValue">0 kPa</span></label>
+                        <input type="range" id="cohesion" min="0" max="50" value="0" step="1">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="friction">Ángulo de Fricción (φ): <span id="frictionValue">35°</span></label>
+                        <input type="range" id="friction" min="10" max="45" value="35" step="1">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="normalStress">Esfuerzo Normal (σ): <span id="normalStressValue">100 kPa</span></label>
+                        <input type="range" id="normalStress" min="50" max="400" value="100" step="50">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="saturation">Condición:</label>
+                        <select id="saturation">
+                            <option value="dry">Seco</option>
+                            <option value="saturated">Saturado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="speed">Velocidad de Corte: <span id="speedValue">1.2 mm/min</span></label>
+                        <input type="range" id="speed" min="0.1" max="2.0" value="1.2" step="0.1">
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="startBtn"><i class="fas fa-play"></i> Iniciar Ensayo</button>
+                    <button id="pauseBtn" disabled><i class="fas fa-pause"></i> Pausar</button>
+                    <button id="resetBtn" class="reset"><i class="fas fa-redo"></i> Reiniciar</button>
+                </div>
+                
+                <div class="results">
+                    <h3>Resultados del Ensayo en Tiempo Real</h3>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-label">Resistencia al Corte (τ):</span>
+                            <span id="shearStrength" class="result-value">-</span>
+                            <span class="result-unit">kPa</span>
                         </div>
-                        <div class="load-indicator">
-                            <div class="load-bar">
-                                <div class="load-fill"></div>
-                            </div>
-                            <span>Fuerza de Corte: <span id="shearForceValue">0.0 kN</span></span>
+                        <div class="result-item">
+                            <span class="result-label">Desplazamiento Horizontal:</span>
+                            <span id="horizontalDeformation" class="result-value">-</span>
+                            <span class="result-unit">mm</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Fuerza de Corte:</span>
+                            <span id="shearForce" class="result-value">-</span>
+                            <span class="result-unit">N</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Deformación Vertical:</span>
+                            <span id="verticalDeformation" class="result-value">-</span>
+                            <span class="result-unit">mm</span>
                         </div>
                     </div>
                     
-                    <div class="real-time-charts">
-                        <div class="chart-container">
-                            <canvas id="shearChart"></canvas>
-                        </div>
+                    <div class="results-chart">
+                        <h4>Curva Esfuerzo-Deformación</h4>
+                        <canvas id="chartCanvas" height="200"></canvas>
+                    </div>
+                    
+                    <div class="results-chart">
+                        <h4>Envolvente de Falla de Mohr-Coulomb</h4>
+                        <canvas id="mohrCanvas" height="200"></canvas>
                     </div>
                 </div>
             </div>
             
-            <div class="simulation-data">
-                <h3>Datos en Tiempo Real</h3>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <span class="data-label">Desplazamiento Horizontal:</span>
-                        <span class="data-value" id="realDisplacement">0.00 mm</span>
+            <div class="simulation-instructions">
+                <h3>Instrucciones de la Simulación</h3>
+                <div class="instructions-grid">
+                    <div class="instruction">
+                        <h4><i class="fas fa-sliders-h"></i> Parámetros del Suelo</h4>
+                        <p>Ajuste la cohesión y el ángulo de fricción para simular diferentes tipos de suelo. También puede seleccionar un tipo predefinido.</p>
                     </div>
-                    <div class="data-item">
-                        <span class="data-label">Fuerza de Corte:</span>
-                        <span class="data-value" id="realShearForce">0.00 kN</span>
+                    <div class="instruction">
+                        <h4><i class="fas fa-weight-hanging"></i> Esfuerzo Normal</h4>
+                        <p>Modifique el esfuerzo normal aplicado para observar cómo afecta la resistencia al corte del suelo.</p>
                     </div>
-                    <div class="data-item">
-                        <span class="data-label">Esfuerzo de Corte:</span>
-                        <span class="data-value" id="realShearStress">0.00 kPa</span>
+                    <div class="instruction">
+                        <h4><i class="fas fa-tint"></i> Condición de Saturación</h4>
+                        <p>Seleccione entre suelo seco o saturado para ver el efecto del agua en el comportamiento del suelo.</p>
                     </div>
-                    <div class="data-item">
-                        <span class="data-label">Deformación Vertical:</span>
-                        <span class="data-value" id="realVerticalStrain">0.00 mm</span>
+                    <div class="instruction">
+                        <h4><i class="fas fa-chart-line"></i> Interpretación de Resultados</h4>
+                        <p>Observe las curvas de esfuerzo-deformación y la envolvente de falla para determinar los parámetros de resistencia.</p>
                     </div>
                 </div>
             </div>
@@ -152,6 +174,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <script src="simulation.js"></script>
 </body>
 </html>
