@@ -999,3 +999,79 @@ button {
     position: relative;
     z-index: 1;
 }
+
+/* FIX PARA BARRAS DESLIZANTES QUE SE MUEVEN */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 1.5rem;
+    position: relative; /* Añadido */
+    z-index: 5; /* Añadido */
+    overflow: visible; /* Añadido */
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Añadido */
+    z-index: 6; /* Añadido */
+    overflow: visible; /* Añadido */
+}
+
+/* Asegurar que los sliders no se muevan */
+.control-group input[type="range"] {
+    position: static !important;
+    transform: none !important;
+    margin-top: 0.5rem;
+}
+
+.control-group label {
+    position: static !important;
+    transform: none !important;
+}
+
+.control-group select {
+    position: static !important;
+    transform: none !important;
+    margin-top: 0.5rem;
+}
+
+/* Contenedor principal fijo */
+.simulation-container {
+    position: relative;
+    overflow: visible; /* Cambiado de hidden a visible */
+    z-index: 1;
+}
+
+/* Canvas container fijo */
+.canvas-container {
+    position: relative;
+    z-index: 2;
+    transform: none !important;
+}
+
+/* Botones fijos */
+.button-group {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+    width: 100%;
+    z-index: 10;
+    transform: none !important;
+}
+
+.button-group button {
+    position: relative;
+    z-index: 11;
+    transform: none !important;
+}
