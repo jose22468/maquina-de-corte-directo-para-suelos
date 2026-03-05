@@ -472,6 +472,7 @@ function setupSimulation() {
         // Avanzar según la velocidad (mm/frame)
         const speedFactor = speed / 60; // Convertir mm/min a mm/frame (60 FPS)
         shearDisplacement += speedFactor;
+        shearDisplacement = Math.min(shearDisplacement, maxShearDisplacement);
         
         updateTest();
         window.animationId = requestAnimationFrame(animateTest);
@@ -534,9 +535,10 @@ function setupSimulation() {
         
         // Calcular esfuerzo de corte actual (progresiva hasta alcanzar la resistencia máxima)
         const progress = shearDisplacement / (maxShearDisplacement / 2);
-        const currentShear = progress < 1 ? 
+        const rawShear = progress < 1 ? 
             shearStrength * progress : 
             shearStrength * (1 - (progress - 1) * 0.2); // Reducción después del pico
+        const currentShear = Number.isFinite(rawShear) ? Math.max(rawShear, 0) : 0;
         
         // Calcular deformación vertical (dilatancia/contracción)
         const verticalStrain = calculateVerticalStrain(shearDisplacement, frictionAngle, saturation);
@@ -583,8 +585,18 @@ function setupSimulation() {
     }
     
     function updateChart(displacement, stress) {
+        if (!Number.isFinite(displacement) || !Number.isFinite(stress)) {
+            return;
+        }
+
         testData.displacements.push(displacement);
         testData.shearForces.push(stress);
+
+        // Mantener un histórico acotado evita artefactos visuales de escalado
+        if (testData.displacements.length > 500) {
+            testData.displacements.shift();
+            testData.shearForces.shift();
+        }
         
         window.shearChart.data.labels = testData.displacements;
         window.shearChart.data.datasets[0].data = testData.shearForces;
