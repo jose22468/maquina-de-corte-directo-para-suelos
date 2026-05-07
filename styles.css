@@ -1081,3 +1081,26 @@ button {
     z-index: 11;
     transform: none !important;
 }
+
+.prep-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.prep-canvas-wrap {
+    min-height: 340px;
+}
+
+.prep-steps {
+    margin-left: 1.2rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .prep-layout {
+        grid-template-columns: 1fr;
+    }
+}
