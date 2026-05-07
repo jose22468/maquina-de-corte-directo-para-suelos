@@ -35,99 +35,91 @@
     <div class="container">
         <section class="section active">
             <h2>Preparación de la Muestra</h2>
-            <p>La correcta preparación de la muestra es crucial para obtener resultados confiables en el ensayo de corte directo.</p>
-            
-            <h3>Métodos de Preparación de Muestras</h3>
-            
-            <div class="specs-container">
-                <div class="specs-group">
-                    <h3>Muestras Inalteradas</h3>
-                    <ul>
-                        <li>Extracción cuidadosa con muestreador tubular</li>
-                        <li>Preservación de la estructura natural del suelo</li>
-                        <li>Uso de cortador para obtener muestra del tamaño correcto</li>
-                        <li>Mantenimiento del contenido de humedad natural</li>
-                    </ul>
-                </div>
-                
-                <div class="specs-group">
-                    <h3>Muestras Remoldeadas</h3>
-                    <ul>
-                        <li>Preparación a densidad y contenido de humedad específicos</li>
-                        <li>Compactación en capas con tamper o dolly</li>
-                        <li>Control preciso de parámetros de compactación</li>
-                        <li>Uso de moldes de preparación</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Proceso de Compactación</h3>
-            <p>Para muestras remoldeadas, el proceso de compactación debe seguir estos pasos:</p>
-            
-            <div class="protocol-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Determinación de Parámetros</h3>
-                        <p>Establezca la densidad seca y contenido de humedad deseados según el proyecto.</p>
+            <p>Antes del corte directo, esta etapa simula cómo se compacta el suelo en el anillo/molde circular. Lo que haga aquí afecta la simulación principal.</p>
+
+            <div class="prep-layout">
+                <div class="machine-representation">
+                    <div class="canvas-container prep-canvas-wrap">
+                        <canvas id="prepCanvas"></canvas>
                     </div>
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Preparación de Material</h3>
-                        <p>Pese la cantidad necesaria de suelo y agregue agua para alcanzar el contenido de humedad requerido.</p>
+
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="prepSoilType">Tipo de suelo:</label>
+                        <select id="prepSoilType">
+                            <option value="sand">Arena limpia</option>
+                            <option value="clay">Arcilla</option>
+                            <option value="silt">Limo</option>
+                            <option value="clayeySand">Arena arcillosa</option>
+                        </select>
                     </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Compactación en Capas</h3>
-                        <p>Divida la muestra en partes iguales y compacte cada capa con el dolly/tamper hasta alcanzar la altura especificada.</p>
+
+                    <div class="control-group">
+                        <label for="compactionForce">Fuerza de compactación: <span id="compactionForceValue">30 kN</span></label>
+                        <input type="range" id="compactionForce" min="10" max="80" step="1" value="30">
                     </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Verificación</h3>
-                        <p>Verifique la altura final y el peso de la muestra para asegurar que cumple con los requisitos.</p>
+
+                    <div class="control-group">
+                        <label for="numBlows">Número de golpes: <span id="numBlowsValue">25</span></label>
+                        <input type="range" id="numBlows" min="10" max="60" step="1" value="25">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="moisture">Humedad inicial: <span id="moistureValue">12 %</span></label>
+                        <input type="range" id="moisture" min="4" max="28" step="1" value="12">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="layers">Capas de compactación: <span id="layersValue">3</span></label>
+                        <input type="range" id="layers" min="1" max="5" step="1" value="3">
                     </div>
                 </div>
             </div>
-            
-            <div class="warning">
-                <h4><i class="fas fa-exclamation-triangle"></i> Importante</h4>
-                <p>El proceso de saturación (cuando se requiere) debe realizarse después de la compactación y antes del ensayo de corte. El tiempo de saturación varía según el tipo de suelo y debe seguir las especificaciones del estándar aplicable.</p>
+
+            <div class="button-group">
+                <button id="prepStartBtn"><i class="fas fa-play"></i> Iniciar Preparación</button>
+                <button id="prepPauseBtn" disabled><i class="fas fa-pause"></i> Pausar</button>
+                <button id="prepResetBtn" class="reset"><i class="fas fa-redo"></i> Reiniciar</button>
+            </div>
+
+            <div class="results">
+                <h3>Resultado del preparatorio</h3>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">Densidad relativa:</span>
+                        <span id="prepDensity" class="result-value">-</span>
+                        <span class="result-unit">%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Índice de compactación:</span>
+                        <span id="prepQuality" class="result-value">-</span>
+                        <span class="result-unit">0-1</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Estado de muestra:</span>
+                        <span id="prepState" class="result-value">Sin preparar</span>
+                        <span class="result-unit"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="simulation-instructions">
+                <h3>Paso a paso del proceso</h3>
+                <ol id="prepSteps" class="prep-steps">
+                    <li>Seleccione tipo de suelo y parámetros de compactación.</li>
+                    <li>Inicie el preparatorio para aplicar energía de compactación por capas.</li>
+                    <li>Observe el descenso del pisón y la reducción de vacíos en el molde.</li>
+                    <li>Revise la densidad alcanzada y ajuste fuerza, humedad o golpes si hace falta.</li>
+                    <li>Cuando el estado sea "Lista para ensayo", abra la pestaña Simulación.</li>
+                </ol>
+                <p class="notes"><strong>Nota:</strong> La pestaña de simulación toma automáticamente este estado para ajustar cohesión/rozamiento efectivos.</p>
             </div>
         </section>
     </div>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Humboldt Mfg. Co.</h4>
-                <p>875 Tollgate Road, Elgin, Illinois 60123</p>
-                <p>1.800.544.7220 toll free | 1.708.468.6300 main</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Humboldt Scientific, Inc.</h4>
-                <p>2525 Atlantic Avenue, Raleigh, North Carolina 27604</p>
-                <p>1.800.537.4183 toll free | 1.919.833.3190 main</p>
-            </div>
-            
-            <div class="footer-section">
-                <p>Simulación de Máquina de Corte Directo HM-5750 - Herramienta educativa para ingeniería geotécnica</p>
-                <p>© 2023 - Todos los derechos reservados</p>
-                <p>www.humboldtmfg.com</p>
-            </div>
-        </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <footer><div class="footer-content"><div class="footer-section"><p>Simulación educativa HM-5750</p></div></div></footer>
+
+    <script src="preparacion.js"></script>
 </body>
 </html>

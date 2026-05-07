@@ -104,6 +104,20 @@ function initCharts() {
     });
 }
 
+
+function getPreparationAdjustment() {
+    try {
+        const prepState = JSON.parse(localStorage.getItem('prepState') || 'null');
+        if (!prepState || !prepState.compactionQuality) return { factor: 1, note: 'Sin preparatorio aplicado' };
+
+        const q = prepState.compactionQuality;
+        const factor = Math.max(0.7, Math.min(1.12, 0.82 + q * 0.4));
+        return { factor, note: prepState.ready ? 'Preparación óptima aplicada' : 'Preparación parcial aplicada' };
+    } catch (e) {
+        return { factor: 1, note: 'Preparación no disponible' };
+    }
+}
+
 // Configurar la simulación
 function setupSimulation() {
     const canvas = document.getElementById('simulationCanvas');
@@ -124,6 +138,7 @@ function setupSimulation() {
     let normalStress = 100;
     let saturation = 'dry';
     let speed = 1.2;
+    let prepAdjustment = getPreparationAdjustment();
     
     // Estado de la simulación
     window.animationId = null;
@@ -274,6 +289,7 @@ function setupSimulation() {
         ctx.fillText('Muestra de suelo', soilX + 10, soilY + 20);
         ctx.fillText(`c = ${cohesion} kPa, φ = ${frictionAngle}°`, soilX + 10, soilY + 40);
         ctx.fillText(`σ = ${normalStress} kPa - ${saturation === 'saturated' ? 'Saturado' : 'Seco'}`, soilX + 10, soilY + 60);
+        ctx.fillText(`${prepAdjustment.note} (x${prepAdjustment.factor.toFixed(2)})`, soilX + 10, soilY + 80);
         
         // Fuerza normal (aplicada por pesos)
         const arrowStartX = boxX + boxWidth/2;
@@ -388,6 +404,7 @@ function setupSimulation() {
     }
     
     function startTest() {
+        prepAdjustment = getPreparationAdjustment();
         if (window.animationId) {
             return; // Ya está en ejecución
         }
@@ -555,7 +572,7 @@ function setupSimulation() {
     function calculateShearStrength() {
         // Aplicar criterio de Mohr-Coulomb: τ = c + σ·tan(φ)
         const frictionRad = frictionAngle * Math.PI / 180;
-        let strength = cohesion + normalStress * Math.tan(frictionRad);
+        let strength = (cohesion + normalStress * Math.tan(frictionRad)) * prepAdjustment.factor;
         
         // Ajustar por saturación (suelos saturados tienen menor resistencia)
         if (saturation === 'saturated') {
@@ -607,11 +624,11 @@ function setupSimulation() {
         // Calcular la envolvente de falla basada en los parámetros actuales
         const frictionRad = frictionAngle * Math.PI / 180;
         const data = [
-            {x: 0, y: cohesion},
-            {x: 100, y: cohesion + 100 * Math.tan(frictionRad)},
-            {x: 200, y: cohesion + 200 * Math.tan(frictionRad)},
-            {x: 300, y: cohesion + 300 * Math.tan(frictionRad)},
-            {x: 400, y: cohesion + 400 * Math.tan(frictionRad)}
+            {x: 0, y: cohesion * prepAdjustment.factor},
+            {x: 100, y: (cohesion + 100 * Math.tan(frictionRad)) * prepAdjustment.factor},
+            {x: 200, y: (cohesion + 200 * Math.tan(frictionRad)) * prepAdjustment.factor},
+            {x: 300, y: (cohesion + 300 * Math.tan(frictionRad)) * prepAdjustment.factor},
+            {x: 400, y: (cohesion + 400 * Math.tan(frictionRad)) * prepAdjustment.factor}
         ];
         
         window.mohrChart.data.datasets[0].data = data;
